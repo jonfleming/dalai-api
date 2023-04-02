@@ -1,13 +1,6 @@
 const Dalai = require("dalai")
 const readline = require("readline")
-const dalai = new Dalai()
-
-async function main() {
-    await dalai.install("llama", "13B")
-    exit(0)    
-}
-
-main() 
+const dalai = new Dalai('/home/jon/dalai')
 
 const input = readline.createInterface({
     input: process.stdin,
@@ -16,7 +9,7 @@ const input = readline.createInterface({
   });
 
 input.on('line', (line) => {
-    const req = { model: 'alpaca.7B', prompt: line }
+    const req = { model: 'llama.13B', prompt: line }
     dalai.request(req, handler)
 
 })
